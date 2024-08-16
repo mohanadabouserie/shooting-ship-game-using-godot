@@ -1,0 +1,13 @@
+res://Scenes/meteor.gd
+res://Scenes/meteor.tscn
+res://Scenes/main.gd
+res://Scenes/ui.tscn
+res://Scenes/ui.gd
+res://Scenes/main.tscn
+res://Scenes/player.tscn
+res://Scenes/laser.tscn
+res://Scenes/stars.tscn
+res://Scenes/game_over.tscn
+res://Scenes/game_over.gd
+res://global/global.gd
+res://Scenes/player.gd

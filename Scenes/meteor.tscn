@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlykqy8g2krpq"]
+
+[ext_resource type="Script" path="res://Scenes/meteor.gd" id="1_1f4sj"]
+[ext_resource type="Texture2D" uid="uid://bdkurpk5rkmtg" path="res://Assests/kenney_space-shooter-redux/PNG/Meteors/meteorBrown_big2.png" id="1_hjm8o"]
+[ext_resource type="AudioStream" uid="uid://dqdhm687gnoxb" path="res://Assests/kenney_space-shooter-redux/Bonus/sfx_shieldUp.ogg" id="3_nobcj"]
+[ext_resource type="AudioStream" uid="uid://b7cthk7dpgd5b" path="res://Assests/kenney_space-shooter-redux/Bonus/sfx_zap.ogg" id="4_1qufa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4ajd"]
+radius = 55.7315
+
+[node name="meteor" type="Area2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_1f4sj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(99, 111)
+scale = Vector2(1.13333, 1.20408)
+texture = ExtResource("1_hjm8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(97, 112)
+shape = SubResource("CircleShape2D_x4ajd")
+
+[node name="Hit_by_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nobcj")
+
+[node name="Hit_by_laser" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1qufa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

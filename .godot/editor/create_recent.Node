@@ -1,0 +1,15 @@
+GPUParticles2D
+AudioStreamPlayer2D
+Timer
+Label
+MarginContainer
+VBoxContainer
+CenterContainer
+ColorRect
+TextureRect
+HBoxContainer
+CanvasLayer
+Node2D
+AnimatedSprite2D
+Marker2D
+CollisionShape2D

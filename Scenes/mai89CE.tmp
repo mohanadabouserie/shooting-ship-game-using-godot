@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw04kiwytwrb5"]
+
+[ext_resource type="PackedScene" uid="uid://yoj1uxmr1shc" path="res://Scenes/player.tscn" id="1_5s8ml"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_akwa4"]
+[ext_resource type="Texture2D" uid="uid://w3no44b3p5w1" path="res://Assests/kenney_space-shooter-redux/Backgrounds/blue.png" id="2_1wm7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2reju"]
+size = Vector2(40.9375, 726.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ns1r"]
+size = Vector2(1201, 23)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_akwa4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(603.625, 358.75)
+scale = Vector2(4.72949, 2.83008)
+texture = ExtResource("2_1wm7l")
+
+[node name="player" parent="." instance=ExtResource("1_5s8ml")]
+position = Vector2(584, 375)
+speed = 500
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Meteors" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(-20.9375, 359)
+shape = SubResource("RectangleShape2D_2reju")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+position = Vector2(1221.47, 356.75)
+shape = SubResource("RectangleShape2D_2reju")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
+position = Vector2(603, 731.5)
+shape = SubResource("RectangleShape2D_3ns1r")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
+position = Vector2(599.5, -11)
+shape = SubResource("RectangleShape2D_3ns1r")
+
+[node name="Lasers" type="Node2D" parent="."]
+
+[connection signal="laser" from="player" to="." method="_on_player_laser"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

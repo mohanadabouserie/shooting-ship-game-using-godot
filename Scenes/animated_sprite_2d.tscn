@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0h0b4d415cup"]
+
+[ext_resource type="Texture2D" uid="uid://dcjiqsqx7vffq" path="res://Assests/kenney_space-shooter-redux/PNG/Effects/star1.png" id="1_ujfng"]
+[ext_resource type="Texture2D" uid="uid://b4v2bjqxpdfn6" path="res://Assests/kenney_space-shooter-redux/PNG/Effects/star2.png" id="2_sjhuo"]
+[ext_resource type="Texture2D" uid="uid://dulwf71kx0liq" path="res://Assests/kenney_space-shooter-redux/PNG/Effects/star3.png" id="3_inxom"]
+[ext_resource type="Script" path="res://Scenes/AnimatedSprite2D.gd" id="4_m2glu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epnca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ujfng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sjhuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_inxom")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_epnca")
+frame = 2
+frame_progress = 1.0
+script = ExtResource("4_m2glu")
